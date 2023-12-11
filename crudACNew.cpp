@@ -61,3 +61,35 @@ void displayAllAC() {
     }
 }
 
+// Fungsi untuk mengupdate data AC berdasarkan ID
+void updateAC() {
+    if (acCount > 0) {
+        int updateID;
+        cout << "Masukkan ID AC yang akan diupdate: ";
+        cin >> updateID;
+
+        for (int i = 0; i < acCount; i++) {
+            if (acDatabase[i].id == updateID) {
+                cout << "Masukkan Brand AC baru: ";
+                cin.ignore();
+                cin.getline(acDatabase[i].brand, sizeof(acDatabase[i].brand));
+
+                cout << "Masukkan Tipe AC baru: ";
+                cin.getline(acDatabase[i].type, sizeof(acDatabase[i].type));
+
+                cout << "Masukkan Kapasitas AC baru (ton): ";
+                cin >> acDatabase[i].capacity;
+
+                cout << "Masukkan Harga AC baru: ";
+                cin >> acDatabase[i].price;
+
+                cout << "Data AC berhasil diupdate." << endl;
+                return;
+            }
+        }
+
+        cout << "ID AC tidak ditemukan." << endl;
+    } else {
+        cout << "Database AC kosong." << endl;
+    }
+}
