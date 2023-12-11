@@ -44,3 +44,19 @@ void addAC() {
     }
 }
 
+// Fungsi untuk menampilkan semua data AC
+void displayAllAC() {
+    if (acCount > 0) {
+        cout << "Data AC:" << endl;
+        for (int i = 0; i < acCount; i++) {
+            cout << "ID: " << acDatabase[i].id << endl;
+            cout << "Brand: " << acDatabase[i].brand << endl;
+            cout << "Tipe: " << acDatabase[i].type << endl;
+            cout << "Kapasitas: " << acDatabase[i].capacity << " ton" << endl;
+            cout << "Harga: $" << acDatabase[i].price << endl;
+            cout << "------------------------" << endl;
+        }
+    } else {
+        cout << "Database AC kosong." << endl;
+    }
+}
