@@ -93,3 +93,66 @@ void updateAC() {
         cout << "Database AC kosong." << endl;
     }
 }
+
+// Fungsi untuk menghapus data AC berdasarkan ID
+void deleteAC() {
+    if (acCount > 0) {
+        int deleteID;
+        cout << "Masukkan ID AC yang akan dihapus: ";
+        cin >> deleteID;
+
+        for (int i = 0; i < acCount; i++) {
+            if (acDatabase[i].id == deleteID) {
+                for (int j = i; j < acCount - 1; j++) {
+                    acDatabase[j] = acDatabase[j + 1];
+                }
+                acCount--;
+
+                cout << "Data AC berhasil dihapus." << endl;
+                return;
+            }
+        }
+
+        cout << "ID AC tidak ditemukan." << endl;
+    } else {
+        cout << "Database AC kosong." << endl;
+    }
+}
+
+int main() {
+    int choice;
+
+    do {
+        cout << "\nMenu:\n";
+        cout << "1. Tambah Data AC\n";
+        cout << "2. Tampilkan Semua Data AC\n";
+        cout << "3. Update Data AC\n";
+        cout << "4. Hapus Data AC\n";
+        cout << "5. Keluar\n";
+        cout << "Pilih menu (1-5): ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                addAC();
+                break;
+            case 2:
+                displayAllAC();
+                break;
+            case 3:
+                updateAC();
+                break;
+            case 4:
+                deleteAC();
+                break;
+            case 5:
+                cout << "Program selesai." << endl;
+                break;
+            default:
+                cout << "Pilihan tidak valid. Silakan pilih kembali." << endl;
+        }
+
+    } while (choice != 5);
+
+    return 0;
+}
